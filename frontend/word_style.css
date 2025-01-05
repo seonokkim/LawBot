@@ -1,0 +1,463 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  /* Uncomment font-family if needed */
+  /* font-family: "NanumSquareLight", sans-serif; */
+  background-color: #f2faff;
+  position: fixed;
+  opacity: 0; /* Set initial opacity to 0 */
+  transition: opacity 1s ease-in-out; /* Add animation effect to opacity change */
+}
+body.fade-in {
+  opacity: 1; /* Change opacity to 1 when the fade-in class is added */
+}
+/* ------------------------------------------------------------------*/
+.main-container {
+  margin-top: 3%;
+  margin-left: 8%;
+  position: fixed;
+  width: 94vw;
+  height: 90vh;
+  display: flex;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+  background-color: #101fa7;
+  border-radius: 30px;
+  z-index: -1;
+}
+
+.logo {
+  background-image: url("src/lawbot.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 1%;
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-bottom: 30px;
+  width: 13vw;
+  height: 11vh;
+  position: relative;
+}
+
+.word-btn,
+.main-btn {
+  /* Uncomment font-family if needed */
+  /* font-family: "NanumSquareLight", sans-serif; */
+  position: absolute;
+  color: black;
+  border: none;
+  padding: 1.2vw 3vh;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+/* Button for checking past records */
+.main-btn {
+  top: 15%;
+  left: -3.5%;
+  border-radius: 10px 0 0 10px;
+  background-color: #83d1ff;
+}
+
+/* Button for organizing terms */
+.word-btn {
+  top: 25%;
+  left: -3.5%;
+  border-radius: 10px 0 0 10px;
+  background-color: #bee7ff;
+}
+
+.list-btn {
+  /* Uncomment font-family if needed */
+  /* font-family: "NanumSquareLight", sans-serif; */
+  position: fixed;
+  font-size: 1.5em; /* Text size */
+  text-align: center; /* Center text alignment */
+  background-color: #bee7ff;
+  transition: background-color 0.3s;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+  top: 9%;
+  width: 3.5vw; /* Button width */
+  height: 6vh; /* Button height */
+  right: 9%;
+}
+
+/* Chatbot area */
+.chat-container {
+  background-image: url("src/page.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 1%;
+  top: 6%;
+  left: 8.6%;
+  width: 84.2vw;
+  height: 88vh;
+  position: fixed;
+  z-index: 0;
+}
+
+.chat-box {
+  height: 50vh;
+  margin: 0.5vh 5vh 0 5vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+  scroll-behavior: smooth; /* Smooth scroll */
+}
+.chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+.chat-message {
+  max-width: 75%;
+  border-radius: 10px;
+  word-break: break-word; /* Prevent long words from overflowing */
+  padding: 1em 2em;
+}
+
+.chat-message.bot {
+  align-self: flex-start;
+  /* Uncomment font-family if needed */
+  /* font-family: "NanumGothic", sans-serif; */
+  background-color: #bee7ff;
+  border: none;
+  font-size: 1.3em;
+  white-space: pre-wrap;
+}
+
+.chat-message.user {
+  align-self: flex-end;
+  /* Uncomment font-family if needed */
+  /* font-family: "NanumGothic", sans-serif; */
+  background-color: #f2faff;
+  border: none;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.chat-message.selected {
+  border: none; /* Highlight selected message */
+  background-color: #d3ffd3; /* Change background color for selected message */
+}
+.bot-message-container {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  gap: 1vw; /* Space between button and message */
+  margin-bottom: 1.5vh;
+}
+
+/* Bot message styles */
+.bot-message {
+  max-width: 75%;
+  background-color: #bee7ff;
+  border-radius: 10px;
+  padding: 1em 3em;
+  font-size: 1.3em;
+  white-space: pre-wrap;
+  flex: 1; /* Ensure the message occupies more width than the button */
+}
+
+/* Voice button styles */
+.audio-button {
+  font-size: 1.5em;
+  background-color: #bee7ff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 3.5vw;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+/* ------------------------------------------------------------------*/
+
+.input-container {
+  display: flex;
+  position: fixed;
+  background-color: rgba(131, 209, 255, 0.24);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  padding: 4vh 3vw;
+  left: 8.6%;
+  width: 78.3%;
+}
+.input-container {
+  top: 81%;
+  height: 5%;
+  flex-direction: row;
+  gap: 1vw; /* Space between elements */
+}
+/* User input row styles */
+.input-row {
+  display: flex;
+  align-items: center; /* Vertical center alignment */
+  width: 100%;
+  height: 10vh;
+  gap: 1vw; /* Space between elements */
+}
+
+.lang,
+.voice {
+  position: fixed;
+  font-size: 1.5em; /* Text size */
+  text-align: center; /* Center text alignment */
+  background-color: #bee7ff;
+  transition: background-color 0.3s;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+}
+.lang {
+  bottom: 9.2%;
+  width: 3.5vw; /* Button width */
+  height: 6vh; /* Button height */
+  left: 11.9%;
+}
+.voice {
+  bottom: 9.2%;
+  width: 3.5vw; /* Button width */
+  height: 6vh; /* Button height */
+  right: 18.6%;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* Full modal area ---------------------------------------------------------------------------------------------------------------------------------------------------- */
+.modal {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Display above other elements */
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Language list styles */
+#languageList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#languageList li {
+  /* Uncomment font-family if needed */
+  /* font-family: "NanumSquareLight", sans-serif; */
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f4f4f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#languageList li:hover {
+  background-color: #e0e0e0; /* Change color on hover */
+}
+
+/* Close button for modal */
+#closeModal {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#closeModal:hover {
+  background-color: #2980b9; /* Change color on hover */
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.input-box {
+  position: fixed;
+  /* Uncomment font-family if needed */
+  /* font-family: "NanumSquareLight", sans-serif; */
+  width: 67%;
+  height: 8vh;
+  bottom: 8%;
+  left: 11%;
+  border: 2px solid #bee7ff;
+  border-radius: 10vh;
+  font-size: 1.5em;
+  padding: 0 2vw;
+  text-align: center;
+}
+
+.input-box::placeholder {
+  color: black;
+  text-align: center;
+}
+
+.input-box:focus::placeholder {
+  visibility: hidden;
+}
+
+/* Send button */
+.send-btn {
+  position: fixed;
+  /* Uncomment font-family if needed */
+  /* font-family: "NanumSquareLight", sans-serif; */
+  background-color: #bee7ff;
+  border: none;
+  border-radius: 10vh;
+  cursor: pointer;
+  font-size: 1.3em;
+  padding: 0 1vw;
+  height: 8vh;
+  width: 7%;
+  bottom: 8.5%;
+}
+
+.send-btn {
+  margin-left: 72vw;
+}
+
+.send-btn:hover {
+  background-color: #9ec7df; /* Change color on hover */
+}
+
+/* ------------------------------------------------------------------*/
+
+/* Log container for saving questions and answers */
+.log-container {
+  display: flex;
+  position: fixed;
+  bottom: 6.2%;
+  left: 8.6%;
+  width: 78.2%;
+  height: 10%;
+  padding: 4vh 3vw;
+  background-color: rgba(131, 209, 255, 0.24);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.3em;
+  color: #333;
+}
+
+.instruction-text {
+  text-align: center;
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* Styles for input field and buttons */
+.input-button-container {
+  display: flex;
+  flex-direction: row; /* Arrange input field and buttons horizontally */
+  justify-content: center;
+  align-items: center;
+  gap: 1vw; /* Add spacing between input field and button */
+  width: 100%;
+}
+
+/* Input field style */
+.input-button-container input {
+  width: 50%; /* Set input field width */
+  height: 3vh;
+  padding: 1vw;
+  font-size: 1em;
+  border: 2px solid #bee7ff;
+  border-radius: 10vh;
+  text-align: center;
+}
+
+/* Button styles */
+.input-button-container button {
+  width: 10%; /* Set button size */
+  height: 6vh;
+  padding: 1vw;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: #bee7ff;
+  border: none;
+  border-radius: 10vh;
+}
+
+/* Choice container for saved conversation buttons */
+.choice-container {
+  position: relative; /* Allow position adjustment */
+  top: 3%; /* Position relative to the top of the screen */
+  left: 97.7%; /* Position relative to the right of the screen */
+  display: flex;
+  flex-direction: column; /* Arrange buttons vertically */
+  gap: 1vh; /* Add spacing between buttons */
+  align-items: flex-start; /* Align buttons to the left */
+  padding: 1em;
+}
+
+/* Styles for saving conversation and generated buttons */
+.log-btn,
+.generated-button {
+  background-color: #83d1ff;
+  color: black;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  padding: 1.2vw 3vh;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+/* Close button style definition */
+.close-btn {
+  position: fixed;
+  font-size: 1.5em; /* Text size */
+  text-align: center; /* Center text alignment */
+  background-color: #bee7ff;
+  transition: background-color 0.3s;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+  top: 9%;
+  width: 3.5vw; /* Button width */
+  height: 6vh; /* Button height */
+  right: 9%;
+}
+
+/* Modal styles for both language and history modals */
+#languageModal,
+#historyModal {
+  display: none; /* Ensure modals are hidden when navigating pages */
+}

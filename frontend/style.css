@@ -1,0 +1,226 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  /* font-family: "NanumGothic", sans-serif; */
+  background-color: #f2faff;
+  position: fixed;
+  opacity: 0; /* Set opacity to 0 initially */
+  transition: opacity 1s ease-in-out; /* Add animation effect to opacity transition */
+}
+body.fade-in {
+  opacity: 1; /* Change opacity to 1 when the fade-in class is added */
+}
+/* ------------------------------------------------------------------*/
+.main-container {
+  margin-top: 3%;
+  margin-left: 8%;
+  position: fixed;
+  width: 94vw;
+  height: 90vh;
+  display: flex;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+  background-color: #101fa7;
+  border-radius: 30px;
+  z-index: -1;
+}
+
+.logo {
+  background-image: url("src/lawbot.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 1%;
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-bottom: 30px;
+  width: 13vw;
+  height: 11vh;
+  position: relative;
+}
+
+.word-btn,
+.main-btn {
+  /* font-family: "NanumGothic", sans-serif; */
+  position: absolute;
+  color: black;
+  border: none;
+  padding: 1.2vw 3vh;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+/* Buttons for reviewing past conversations and glossary */
+.main-btn {
+  top: 15%;
+  left: -3.5%;
+  border-radius: 10px 0 0 10px;
+  background-color: #bee7ff;
+}
+
+.word-btn {
+  top: 25%;
+  left: -3.5%;
+  border-radius: 10px 0 0 10px;
+  background-color: #83d1ff;
+}
+.list-btn {
+  position: fixed;
+  font-size: 1.5em; /* Font size */
+  text-align: center; /* Center-align text */
+  background-color: #bee7ff;
+  transition: background-color 0.3s;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+  width: 3.5vw; /* Button width */
+  height: 6vh; /* Button height */
+  top: 9%;
+  right: 9%;
+}
+
+/* Chatbot area */
+.chat-container {
+  background-image: url("src/page.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 1%;
+  top: 6%;
+  left: 8.6%;
+  width: 84.2vw;
+  height: 88vh;
+  position: fixed;
+  z-index: 0;
+}
+
+.chat-box {
+  height: 50vh;
+  margin: 0.5vh 5vh 0 5vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+.chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+/* Chat message styling */
+.chat-message {
+  max-width: 75%;
+  border-radius: 10px;
+  word-break: break-word; /* Prevent long words from overflowing */
+  padding: 1em 2em;
+}
+
+.chat-message.bot {
+  align-self: flex-start;
+  /* font-family: "NanumGothic", sans-serif; */
+  background-color: #bee7ff;
+  border: none;
+  font-size: 1.3em;
+  white-space: pre-wrap;
+}
+
+.chat-message.user {
+  align-self: flex-end;
+  /* font-family: "NanumGothic", sans-serif; */
+  background-color: #f2faff;
+  border: none;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.chat-message.selected {
+  border: none; /* Add border for selected messages */
+  background-color: #d3ffd3; /* Change color for selected messages */
+}
+.bot-message-container {
+  display: flex;
+  align-items: flex-start; /* Align to top */
+  gap: 1vw; /* Gap between button and message */
+  margin-bottom: 1.5vh;
+}
+
+/* Bot message styling */
+.bot-message {
+  max-width: 75%;
+  background-color: #bee7ff;
+  border-radius: 10px;
+  padding: 1em 3em;
+  font-size: 1.3em;
+  white-space: pre-wrap;
+  flex: 1; /* Allow message to occupy more space than the button */
+}
+
+/* Voice button styling */
+.audio-button {
+  font-size: 1.5em;
+  background-color: #bee7ff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 3.5vw;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+/* ------------------------------------------------------------------*/
+
+.input-container {
+  display: flex;
+  position: fixed;
+  background-color: rgba(131, 209, 255, 0.24);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  padding: 4vh 3vw;
+  left: 8.6%;
+  width: 78.3%;
+}
+.input-container {
+  flex-direction: column; /* Align items vertically */
+  top: 72.4%;
+  height: 13.5%;
+}
+/* Quick reply buttons */
+.quick-reply-buttons {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+  width: 100%;
+  left: 1%;
+  bottom: 17.5%;
+  margin-bottom: 1vh;
+}
+.quick-reply {
+  /* font-family: "NanumGothic", sans-serif; */
+  font-size: 1.3em;
+  cursor: pointer;
+  background-color: #bee7ff;
+  transition: background-color 0.3s;
+  text-align: center;
+  border: none;
+  border-radius: 50vh;
+  width: 12.7vw;
+  height: 7vh;
+}
+
+.quick-reply:hover {
+  background-color: #83d1ff;
+}

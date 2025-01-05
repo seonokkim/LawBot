@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LawBot</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+
+    <link
+      href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main-container">
+      <!-- Check History and Glossary -->
+      <button id="btnmain" class="main-btn">💭</button>
+      <button id="btnword" class="word-btn">📖</button>
+
+      <!-- Chatbot Area -->
+      <div id="chatContainer" class="chat-container">
+        <!-- Logo -->
+        <div class="logo"></div>
+        <div id="chatbox" class="chat-box"></div>
+        <!-- Input Container -->
+        <div class="input-container">
+          <!-- Quick Reply Buttons -->
+          <div class="quick-reply-buttons">
+            <button
+              class="quick-reply"
+              data-topic="How to Use"
+              id="btnGuide"
+              data-topic="Let me guide you on how to use LawBot."
+            >
+              How to Use 💡
+            </button>
+            <button
+              class="quick-reply"
+              data-topic="Immigration Preparation"
+              id="btnPrep"
+              data-topic="I can provide legal information to assist you with your immigration process."
+            >
+              Immigration Preparation ✔️
+            </button>
+            <button class="quick-reply" data-topic="Lease Agreement" id="btnLease">
+              Lease Agreement 🏠
+            </button>
+            <button
+              class="quick-reply"
+              data-topic="Social Insurance"
+              id="btnInsurance"
+            >
+              Social Insurance ⚖️
+            </button>
+            <button class="quick-reply" data-topic="Labor Law" id="btnLaborLaw">
+              Labor Law 💼
+            </button>
+          </div>
+          <!-- User Input Box and Send Button -->
+          <div class="input-row">
+            <!-- Language Change and Voice Recognition Button -->
+            <div id="lang"><button id="lang-btn" class="lang">🌐</button></div>
+            <input
+              type="text"
+              class="input-box"
+              id="userInput"
+              onkeyup="checkEnter(event)"
+            />
+            <button id="voiceButton" class="voice">🎤</button>
+            <button class="send-btn" id="sendButton">Send</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Language Selection Modal -->
+      <div id="languageModal" class="modal">
+        <div class="modal-content">
+          <ul id="languageList">
+            <li data-lang="ko">Korean</li>
+            <li data-lang="en">English</li>
+            <li data-lang="ja">Japanese</li>
+            <li data-lang="zh">Chinese</li>
+            <li data-lang="th">Thai</li>
+            <li data-lang="vi">Vietnamese</li>
+            <li data-lang="tl">Filipino</li>
+            <li data-lang="uz">Uzbek</li>
+            <li data-lang="ru">Russian</li>
+            <li data-lang="hi">Hindi</li>
+          </ul>
+          <button id="closeModal">Close</button>
+        </div>
+      </div>
+
+      <!-- Question and Answer Log -->
+      <div class="choice-container">
+        <button class="log-btn">✏️</button>
+      </div>
+    </div>
+  </body>
+</html>

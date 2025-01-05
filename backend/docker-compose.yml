@@ -1,0 +1,25 @@
+services:
+  app:
+    image: lawbot-app:latest
+    command: ["uvicorn", "src.get_response:app", "--host", "0.0.0.0", "--port", "8000"]
+    environment:
+      SEARCH_ENDPOINT: "${SEARCH_ENDPOINT}"
+      SEARCH_API_KEY: "${SEARCH_API_KEY}"
+      AZURE_OPENAI_ENDPOINT: "${AZURE_OPENAI_ENDPOINT}"
+      AZURE_OPENAI_API_KEY: "${AZURE_OPENAI_API_KEY}"
+    logging:
+      driver: "none"
+
+  nginx:
+    image: nginx:latest
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # Example of absolute path binding for Windows (relative paths may not work well in Swarm mode)
+      - "C:/docker/ssl:/etc/nginx/ssl:ro"
+      # Nginx configuration file (relative paths might work, but absolute paths are recommended)
+      - ./nginx/sites-available/lawbot.conf:/etc/nginx/conf.d/lawbot.conf:ro
+    command: ["nginx", "-g", "daemon off;"]
