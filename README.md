@@ -1,23 +1,56 @@
 
 # LawBot
 
-LawBot is an AI-powered legal assistant designed to process, analyze, and respond to legal queries dynamically. It leverages Azure AI services for natural language understanding, document intelligence, and contextual response generation.
+LawBot is an advanced AI-powered legal assistant designed to handle complex legal queries efficiently and accurately. It combines Retrieval-Augmented Generation (RAG) with fine-tuned Large Language Models (LLMs) to deliver precise, context-aware, and trustworthy legal information. Leveraging cutting-edge Azure AI services, LawBot ensures seamless natural language understanding and response generation.
 
-## Project Overview
+## Key Features
 
-LawBot integrates multiple Azure AI tools and custom models to provide accurate and context-aware responses to user queries. It features a dynamic backend, frontend web application, and efficient pre-processing for enhanced performance.
+- **Retrieval-Augmented Generation (RAG)**:
+  - Integrates Azure AI Search to retrieve relevant legal documents from indexed datasets, including immigration and keyword-specific legal texts.
+  - Combines retrieved content with LLM capabilities to ensure responses are backed by valid citations and references.
+
+- **Fine-Tuned LLMs**:
+  - Utilizes Azure OpenAI Service with a fine-tuned GPT-4o model for contextually accurate, multilingual responses.
+  - Includes techniques like Reinforcement Learning with Human Feedback (RLHF) to optimize responses for legal domain requirements.
+
+- **Multilingual Support**:
+  - Detects the user’s input language dynamically and translates queries or responses when necessary using Azure Translator and Google Translator.
+
+- **Dynamic Validation**:
+  - Validates retrieved citations for accuracy, relevance, and completeness before generating a response.
+  - Falls back to GPT-based general legal knowledge if sufficient citations are not available.
+
+- **Interactive Query Processing**:
+  - Handles legal questions in domains such as immigration law and general keyword-based searches with tailored responses.
+  - Provides summarized legal information derived from document analysis.
+
+## How It Works
+
+1. **Input Language Detection**: Automatically identifies the input language using an advanced language detector.
+2. **Translation**: Converts non-Korean queries to Korean if required, ensuring compatibility with available legal data.
+3. **RAG-Based Document Retrieval**: Fetches relevant legal documents using Azure AI Search’s semantic configuration.
+4. **Citation Validation**: Checks citations for validity and content sufficiency.
+5. **Fine-Tuned LLM Summarization**: Summarizes citations or generates fallback responses using GPT-4o if citations are insufficient.
+6. **Multilingual Output**: Translates final responses back to the user’s language if needed.
+
+## Technology Stack
+
+- **Azure Services**: OpenAI, AI Search, Document Intelligence, and Blob Storage for end-to-end AI and data processing.
+- **Natural Language Processing**: Google Translator and Azure Translator for multilingual capabilities.
+- **Frameworks**: FastAPI for backend API integration, with support for scalable and cross-platform deployment.
+
 
 ### Project Architecture
 
 Below is the high-level architecture of LawBot:
 
-![Project Architecture](./figures/project_structure.png)
+![Project Architecture](./figures/project_structure.jpeg)
 
 ### Response Optimization
 
 LawBot employs a comprehensive response optimization workflow that dynamically handles user queries and generates the most relevant answers. The workflow ensures accuracy by validating citations and content before providing the final output.
 
-![Response Optimization Workflow](./figures/response_optimization.png)
+![Response Optimization Workflow](./figures/response_optimization.jpeg)
 
 ## Features
 
