@@ -1,7 +1,7 @@
 
 # LawBot
 
-LawBot is an advanced AI-powered legal assistant designed to handle complex legal queries efficiently and accurately. It combines Retrieval-Augmented Generation (RAG) with fine-tuned Large Language Models (LLMs) to deliver precise, context-aware, and trustworthy legal information. Leveraging cutting-edge Azure AI services, LawBot ensures seamless natural language understanding and response generation.
+LawBot is an AI-powered legal assistant designed to handle complex legal queries efficiently and accurately. It combines Retrieval-Augmented Generation (RAG) with fine-tuned Large Language Models (LLMs) to deliver precise, context-aware, and trustworthy legal information. Leveraging cutting-edge Azure AI services, LawBot ensures seamless natural language understanding and response generation.
 
 ## Key Features
 
