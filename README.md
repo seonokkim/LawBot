@@ -136,6 +136,10 @@ LawBot/
 2. The backend processes the input and interacts with Azure services to generate responses.
 3. Final answers are displayed on the frontend with valid citations and summarized insights.
 
+## Demo
+
+Check a live demo of the application and further details [here](https://youtu.be/78xQtkk6AfU).
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
