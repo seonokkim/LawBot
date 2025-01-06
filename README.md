@@ -1,12 +1,12 @@
 
 # LawBot
 
-LawBot is an AI-powered legal assistant designed to handle complex legal queries efficiently and accurately. It combines Retrieval-Augmented Generation (RAG) with fine-tuned Large Language Models (LLMs) to deliver precise, context-aware, and trustworthy legal information. Leveraging cutting-edge Azure AI services, LawBot ensures seamless natural language understanding and response generation.
+LawBot is an advanced AI-powered legal assistant specializing in Korean law, designed to handle complex legal queries efficiently and accurately. It combines Retrieval-Augmented Generation (RAG) with a fine-tuned GPT-4o model to deliver precise, context-aware, and trustworthy legal information. By leveraging Azure AI services, LawBot seamlessly integrates natural language understanding, document intelligence, and advanced legal response generation.
 
 ## Key Features
 
 - **Retrieval-Augmented Generation (RAG)**:
-  - Integrates Azure AI Search to retrieve relevant legal documents from indexed datasets, including immigration and keyword-specific legal texts.
+  - Integrates Azure AI Search to retrieve relevant legal documents from indexed datasets, including immigration and keyword-specific legal texts. Documents are from a wide range of indexed formats, including PDFs, CSVs, and JSONL files, ensuring comprehensive legal analysis.
   - Combines retrieved content with LLM capabilities to ensure responses are backed by valid citations and references.
 
 - **Fine-Tuned LLMs**:
