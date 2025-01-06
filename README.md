@@ -44,13 +44,13 @@ LawBot is an advanced AI-powered legal assistant designed to handle complex lega
 
 Below is the high-level architecture of LawBot:
 
-![Project Architecture](./figures/project_structure.jpeg)
+![Project Architecture](./figures/project_structure.png)
 
 ### Response Optimization
 
 LawBot employs a comprehensive response optimization workflow that dynamically handles user queries and generates the most relevant answers. The workflow ensures accuracy by validating citations and content before providing the final output.
 
-![Response Optimization Workflow](./figures/response_optimization.jpeg)
+![Response Optimization Workflow](./figures/response_optimization.png)
 
 ## Features
 
